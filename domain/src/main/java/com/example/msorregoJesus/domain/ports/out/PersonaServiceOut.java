@@ -11,4 +11,5 @@ public interface PersonaServiceOut {
     Optional<PersonaDto> obtenerPersonaOut(String dni);
     List<PersonaDto> obtenerTodosOut();
     PersonaDto actualizarOut(Long id, RequestPersona requestPersona);
+    PersonaDto deleteOut(Long id);
 }

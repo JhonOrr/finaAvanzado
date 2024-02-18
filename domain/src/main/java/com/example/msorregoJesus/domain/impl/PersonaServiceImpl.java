@@ -32,4 +32,8 @@ public class PersonaServiceImpl implements PersonaServiceIn {
     public PersonaDto actualizarIn(Long id, RequestPersona requestPersona){
         return personaServiceOut.actualizarOut(id, requestPersona);
     }
+
+    public PersonaDto deleteIn(Long id){
+        return personaServiceOut.deleteOut(id);
+    }
 }

@@ -12,4 +12,5 @@ public interface PersonaServiceIn {
     Optional<PersonaDto> obtenerPersonaIn(String dni);
     List<PersonaDto> obtenerTodosIn();
     PersonaDto actualizarIn(Long id, RequestPersona requestPersona);
+    PersonaDto deleteIn(Long id);
 }

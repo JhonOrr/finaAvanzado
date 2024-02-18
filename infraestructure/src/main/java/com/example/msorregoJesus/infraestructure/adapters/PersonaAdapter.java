@@ -97,6 +97,21 @@ public class PersonaAdapter implements PersonaServiceOut {
         return null;
     }
 
+    @Override
+    public PersonaDto deleteOut(Long id) {
+        boolean existe = personaRepository.existsById(id);
+        if(existe){
+            Optional<PersonaEntity> entity = personaRepository.findById(id);
+            entity.get().setEstado(0);
+            entity.get().setUsuaDelet(Constants.AUDIT_ADMIN);
+            entity.get().setDateDelet(getTimestamp());
+            personaRepository.save(entity.get());
+            return personaMapper.mapToDto(entity.get());
+        }
+        return null;
+    }
+
+
     private PersonaEntity getEntityUpdate(ResponseReniec reniec, PersonaEntity personaActualizar, RequestPersona requestPersona){
         personaActualizar.setNombres(reniec.getNombres());
         personaActualizar.setApePat(reniec.getApellidoPaterno());

@@ -42,4 +42,11 @@ public class PersonaController {
                 .status(HttpStatus.OK)
                 .body(personaServiceIn.actualizarIn(id, requestPersona));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<PersonaDto>eliminar(@PathVariable Long id){
+        return ResponseEntity
+                .status((HttpStatus.OK))
+                .body(personaServiceIn.deleteIn(id));
+    }
 }
